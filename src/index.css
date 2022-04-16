@@ -1,19 +1,28 @@
 .logo {
   width: 250px;
 }
+.navbar-toggler {
+  background: #c6c282 !important;
+}
+.navbar {
+  background-color: darkkhaki !important;
+}
+.navbar-toggler {
+
+}
 
 @media screen and (max-width: 1199px) {
-    .logo {
-        width: 200px;
-      }
+  .logo {
+    width: 200px;
+  }
 }
 @media screen and (max-width: 767px) {
-    .logo {
-        width: 160px;
-      }
+  .logo {
+    width: 160px;
+  }
 }
 @media screen and (max-width: 575px) {
-    .logo {
-        width: 140px;
-      }
+  .logo {
+    width: 140px;
+  }
 }
