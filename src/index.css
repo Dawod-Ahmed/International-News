@@ -29,23 +29,14 @@ body .headroom-wrapper {
   height: 100vh !important;
   max-height: 100vh !important;
 }
-/* body::-webkit-scrollbar-track {
-  display:none
+body::-webkit-scrollbar-track {
+  display: none;
 }
 
 body::-webkit-scrollbar-thumb {
-  display:none
-} */
+  display: none;
+}
 
-/* #react-select-3-listbox div div p {
-  background-color: red !important;
-} */
-/* #react-select-3-listbox div span {
-  background-color: blue !important;
-} */
-/* #react-select-3-listbox div li {
-  background-color: green !important;
-} */
 .countrychange-div-parent {
   width: fit-content;
 }

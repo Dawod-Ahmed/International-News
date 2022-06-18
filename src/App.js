@@ -40,10 +40,7 @@ const App = () => {
     { label: "Cuba", iso: "cu" },
     { label: "Czech", iso: "cz" },
   ];
-  // useEffect(() => {
-  //   // Update the document title using the browser API
-  //   console.log("Renderd again")
-  // }, [countrynews]);
+
   const changeCountryNews = (value) => {
     setCountrynews(value.iso);
     //   console.log("Renderd again")
