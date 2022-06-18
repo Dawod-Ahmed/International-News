@@ -25,7 +25,7 @@ const NewsItem = (props) => {
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">{title} </h5>
+          <h5 className="card-title">{`${title.substring(0, 100)}...`} </h5>
           <p className="card-text">{`${description.substring(0, 200)}...`}</p>
           <p className="card-text">
             <small className="text-muted">
@@ -37,7 +37,7 @@ const NewsItem = (props) => {
             rel="noreferrer"
             href={newsUrl}
             target="_blank"
-            className="btn btn-sm btn-dark"
+            className="btn btn-sm readmore-btn"
           >
             Read More
           </a>

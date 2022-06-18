@@ -4,13 +4,14 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Select from "react-select";
 
 const News = (props) => {
+  // const [countrynews, setCountrynews] = useState();
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -34,6 +35,10 @@ const News = (props) => {
     updateNews();
     // eslint-disable-next-line
   }, []);
+  const onSelectChange = (selectedOption) => {
+    // console.log("Testing---");
+    console.log("Testing---", selectedOption);
+  };
 
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${
@@ -47,15 +52,34 @@ const News = (props) => {
     setArticles(articles.concat(parsedData.articles));
     setTotalResults(parsedData.totalResults);
   };
+  // const countries = [
+  //   { Country: "United Arab Emirates", ISO: "ae" },
+  //   { Country: "India", ISO: "in" },
+  //   { countrynews: "Netflix", value: 3 },
+  //   { country: "Tesla", value: 4 },
+  //   { country: "Amazon", value: 5 },
+  //   { country: "Alphabet", value: 6 },
+  // ];
 
   return (
     <>
-      <h1
-        className="text-center"
-        style={{ margin: "35px 0px", marginTop: "90px" }}
-      >
-        International New - Top {capitalizeFirstLetter(props.category)} Headlines
+      <h1 className="text-center news-heading mx-auto mb-5">
+        International News - Top {capitalizeFirstLetter(props.category)}{" "}
+        Headlines
       </h1>
+      {/* <Select options={countries} onChange={(value)=>{setCountrynews(value.ISO)}} /> */}
+      {/* <select
+        class="custom-select custom-select-lg mb-3"
+        onChange={() => {
+          console.log("Testing---");
+        }}
+      >
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select> */}
+
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}
@@ -67,17 +91,26 @@ const News = (props) => {
           <div className="row justify-content-center">
             {articles.map((element) => {
               return (
-                <div className="col-md-4 card-parent my-3 " key={element.url}>
-                  <NewsItem
-                    title={element.title ? element.title : ""}
-                    description={element.description ? element.description : ""}
-                    imageUrl={element.urlToImage}
-                    newsUrl={element.url}
-                    author={element.author}
-                    date={element.publishedAt}
-                    source={element.source.name}
-                  />
-                </div>
+                <>
+                  {element.urlToImage ? (
+                    <div
+                      className="col-md-4 card-parent my-3 "
+                      key={element.url}
+                    >
+                      <NewsItem
+                        title={element.title ? element.title : ""}
+                        description={
+                          element.description ? element.description : ""
+                        }
+                        imageUrl={element.urlToImage}
+                        newsUrl={element.url}
+                        author={element.author}
+                        date={element.publishedAt}
+                        source={element.source.name}
+                      />
+                    </div>
+                  ) : null}
+                </>
               );
             })}
           </div>
@@ -87,16 +120,16 @@ const News = (props) => {
   );
 };
 
-News.defaultProps = {
-  country: "in",
-  pageSize: 8,
-  category: "general",
-};
+// News.defaultProps = {
+//   country: "ae",
+//   pageSize: 8,
+//   category: "general",
+// };
 
-News.propTypes = {
-  country: PropTypes.string,
-  pageSize: PropTypes.number,
-  category: PropTypes.string,
-};
+// News.propTypes = {
+//   country: PropTypes.string,
+//   pageSize: PropTypes.number,
+//   category: PropTypes.string,
+// };
 
 export default News;

@@ -1,13 +1,103 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(./Font/Poppins.ttf);
+}
+
 .logo {
   width: 250px;
 }
 .navbar-toggler {
-  background: #c6c282 !important;
+  background-color: #55bdff !important;
 }
 .navbar {
-  background-color: darkkhaki !important;
+  background-color: #55bdff !important;
 }
- 
+
+body {
+  background-color: #daeeff;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body .headroom-wrapper {
+  height: auto !important;
+}
+
+.container-fluid .show {
+  background-color: #55bdff !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+/* body::-webkit-scrollbar-track {
+  display:none
+}
+
+body::-webkit-scrollbar-thumb {
+  display:none
+} */
+
+/* #react-select-3-listbox div div p {
+  background-color: red !important;
+} */
+/* #react-select-3-listbox div span {
+  background-color: blue !important;
+} */
+/* #react-select-3-listbox div li {
+  background-color: green !important;
+} */
+.countrychange-div-parent {
+  width: fit-content;
+}
+.css-b62m3t-container {
+  width: 200px;
+  text-align: center;
+  font-family: "'Poppins'";
+  font-weight: bold;
+}
+
+.scrollBar-Top {
+  display: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  border-radius: 15px;
+}
+
+div .active-scrollToTop {
+  display: block !important;
+}
+
+.progressBarLoading {
+  color: #003758 !important;
+  background-color: #003758 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255 255 255);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.news-heading {
+  margin-top: 30px !important;
+}
+
+.readmore-btn {
+  background-color: #55bdff !important;
+  color: white;
+  border: 1px solid darkblue;
+}
+
+body div div div .card-img {
+  min-height: 300px !important;
+  height: 300px !important;
+  max-height: 300px !important;
+}
 @media screen and (max-width: 1199px) {
   .logo {
     width: 200px;

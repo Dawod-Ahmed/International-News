@@ -1,21 +1,84 @@
 import "./App.css";
-
-import React, { useState } from "react";
+import { ScrollTopImg } from "./images/assets";
+import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import News from "./components/News";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-
+import HideHeaderOnScroll from "react-headroom";
+import Select from "react-select";
 const App = () => {
   const pageSize = 5;
-  const apiKey = "b4ff23ec2146490696ac70ce6a446e1e";
+  const apiKey = "a4fc60c5601c4a11bde67e542e7cfa63";
   const [progress, setProgress] = useState(0);
+  const [countrynews, setCountrynews] = useState("in");
+
+  const scrolltotop = () => {
+    window.scrollTo(0, 0);
+  };
+  window.addEventListener("scroll", function () {
+    var scroll = document.querySelector(".scrollBar-Top");
+    scroll.classList.toggle("active-scrollToTop", window.scrollY > 300);
+  });
+
+  const countries = [
+    { label: "United Arab Emirates", iso: "ae" },
+    { label: "United States", iso: "us" },
+    { label: "Germany", iso: "de" },
+    { label: "Russia", iso: "ru" },
+    { label: "India", iso: "in" },
+    { label: "Australia", iso: "au" },
+    { label: "Canada", iso: "ca" },
+    { label: "China", iso: "cn" },
+    { label: "Switzerland", iso: "ch" },
+    { label: "Brazil", iso: "br" },
+    { label: "Austria", iso: "at" },
+    { label: "Colombia", iso: "co" },
+    { label: "Venezuela", iso: "ve" },
+    { label: "Belgium", iso: "be" },
+    { label: "Bulgaria", iso: "bg" },
+    { label: "Cuba", iso: "cu" },
+    { label: "Czech", iso: "cz" },
+  ];
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   console.log("Renderd again")
+  // }, [countrynews]);
+  const changeCountryNews = (value) => {
+    setCountrynews(value.iso);
+    //   console.log("Renderd again")
+    // window.location.reload(true);
+  };
 
   return (
     <div>
+      <img
+        src={ScrollTopImg}
+        alt="img"
+        className="scrollBar-Top"
+        onClick={scrolltotop}
+      />
+
       <Router>
-        <NavBar />
-        <LoadingBar height={3} color="#f11946" progress={progress} />
+        <HideHeaderOnScroll>
+          <NavBar />
+        </HideHeaderOnScroll>
+        <div className="countrychange-div-parent d-flex ms-auto align-items-center">
+          <p className="fw-bold mb-0">Country News &nbsp;&nbsp;</p>
+          <Select
+            options={countries}
+            className=""
+            onChange={(value) => {
+              changeCountryNews(value);
+            }}
+          />{" "}
+        </div>
+        <LoadingBar
+          height={3}
+          color="#f11946"
+          progress={progress}
+          className="progressBarLoading"
+        />
         <Switch>
           <Route exact path="/">
             <News
@@ -23,7 +86,7 @@ const App = () => {
               apiKey={apiKey}
               key="general"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="general"
             />
           </Route>
@@ -33,7 +96,7 @@ const App = () => {
               apiKey={apiKey}
               key="business"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="business"
             />
           </Route>
@@ -43,7 +106,7 @@ const App = () => {
               apiKey={apiKey}
               key="entertainment"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="entertainment"
             />
           </Route>
@@ -53,7 +116,7 @@ const App = () => {
               apiKey={apiKey}
               key="general"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="general"
             />
           </Route>
@@ -63,7 +126,7 @@ const App = () => {
               apiKey={apiKey}
               key="health"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="health"
             />
           </Route>
@@ -73,7 +136,7 @@ const App = () => {
               apiKey={apiKey}
               key="science"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="science"
             />
           </Route>
@@ -83,7 +146,7 @@ const App = () => {
               apiKey={apiKey}
               key="sports"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="sports"
             />
           </Route>
@@ -93,7 +156,7 @@ const App = () => {
               apiKey={apiKey}
               key="technology"
               pageSize={pageSize}
-              country="in"
+              country={countrynews}
               category="technology"
             />
           </Route>
