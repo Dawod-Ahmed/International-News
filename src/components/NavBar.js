@@ -4,10 +4,12 @@ import { Logo } from "../images/assets.js";
 const NavBar = () => {
   return (
     <div>
+ 
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img src={Logo} alt="" className="logo" />
+            
           </Link>
           <button
             className="navbar-toggler border-0"
