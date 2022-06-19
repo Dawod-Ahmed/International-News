@@ -89,13 +89,12 @@ const News = (props) => {
       >
         <div className="container">
           <div className="row justify-content-center">
-            {articles.map((element) => {
+            {articles.map((element,index) => {
               return (
                 <>
                   {element.urlToImage ? (
-                    <div
+                    <div key={index}
                       className="col-md-4 card-parent my-3 "
-                      key={element.url}
                     >
                       <NewsItem
                         title={element.title ? element.title : ""}

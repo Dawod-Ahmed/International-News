@@ -104,3 +104,9 @@ body div div div .card-img {
     width: 140px;
   }
 }
+@media screen and (max-width: 420px) {
+  .css-b62m3t-container {
+    width: 180px;
+    
+  }
+}

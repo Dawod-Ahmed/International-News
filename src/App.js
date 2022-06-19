@@ -60,7 +60,7 @@ const App = () => {
         <HideHeaderOnScroll>
           <NavBar />
         </HideHeaderOnScroll>
-        <div className="countrychange-div-parent d-flex ms-auto align-items-center">
+        <div className="countrychange-div-parent d-flex ms-auto align-items-center pt-2 px-2">
           <p className="fw-bold mb-0">Country News &nbsp;&nbsp;</p>
           <Select
             options={countries}
